@@ -1,9 +1,12 @@
-from os.path import expanduser
+from os.path import expanduser, exists
 import toml
 import subprocess
 
 THEME_DIR = "~/.config/qtile/themes/"
 THEME_NAME = "default"
+
+if not exists(expanduser(THEME_DIR + THEME_NAME + "/theme.toml")):
+    THEME_NAME = "default"
 
 THEME = toml.load(expanduser(THEME_DIR + THEME_NAME + "/theme.toml"))
 
@@ -188,7 +191,8 @@ screens = [
                 # widget.QuickExit(),
             ],
             int(THEME["fonts"]["size"] * THEME["bar"]["vertical_padding"]),
-            background=THEME["bar"]["background-color"]
+            background=THEME["bar"]["background-color"],
+            margin=[0] + [THEME["border"]["gap"]] * 3
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),

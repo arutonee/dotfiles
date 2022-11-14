@@ -1,0 +1,54 @@
+[background]
+# gif, png, jpg
+type                    = "gif"
+
+[bar]
+vertical_padding        = 1.5
+background-color        = "#1b1b1b"
+chord                   = "#feadb9"
+
+[border]
+focused                 = "#d3c0f9"
+unfocused               = "#8ac0de"
+width                   = 4
+gap                     = 20
+round                   = 20
+
+[fonts]
+family                  = "Cantarell"
+size                    = 24
+
+[tags]
+# border, block, text, line
+highlight_method        = "block"
+urgent_method           = "block"
+
+width                   = 0
+active                  = "#d4c0f9"
+inactive                = "#8ac0de"
+current_color           = "#d4c0f9"
+urgent                  = "#feadb9"
+current_font_color      = "#909090"
+urgent_font_color       = "#909090"
+
+[terminal]
+foreground              = "#e6dce5"
+background              = "#1b1b1b"
+
+black                   = "#909090"
+red                     = "#feadb9"
+green                   = "#adddce"
+yellow                  = "#f3ddb3"
+blue                    = "#8ac0de"
+magenta                 = "#d3c0f9"
+cyan                    = "#d9effc"
+white                   = "#e6dce5"
+
+bright_black            = "#909090"
+bright_red              = "#feadb9"
+bright_green            = "#adddce"
+bright_yellow           = "#f3ddb3"
+bright_blue             = "#8ac0de"
+bright_magenta          = "#d3c0f9"
+bright_cyan             = "#d9effc"
+bright_white            = "#e6dce5"
