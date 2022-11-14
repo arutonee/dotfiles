@@ -1,6 +1,6 @@
 killall picom xgifwallpaper
 sleep 0.5
-picom -o 0 --fade-in-step 0.05 --fade-out-step 0.05 --inactive-opacity 0.8 --corner-radius $1 &
+picom --corner-radius $1 &
 
 if [[ $# -gt 0 ]]; then
   sleep 0.5

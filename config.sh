@@ -8,6 +8,7 @@ else
       echo "-a  | Installs everything included in these dotfiles."
       echo "-h  | Shows this message."
       echo "-al | Sets up Alacritty."
+      echo "-p  | Sets up Picom."
       echo "-q  | Sets up Qtile."
       echo "-z  | Sets up Zsh."
     fi
@@ -15,6 +16,10 @@ else
       rm ~/.config/alacritty -r
       cp $d/alacritty ~/.config/ -r
       echo "Copying $d/alacritty to ~/.config/alacritty"
+    fi
+    if [[ "-p" == "$var" ]]; then
+      cp $d/picom.conf ~/.config/picom.conf
+      echo "Copying $d/picom.conf to ~/.config/picom.conf"
     fi
     if [[ "-q" == "$var" ]]; then
       rm ~/.config/qtile -r
@@ -26,7 +31,7 @@ else
       echo "Copying $d/zshrc to ~/.zshrc"
     fi
     if [[ "-a" == "$var" ]]; then
-      $d/config.sh -al -q -z
+      $d/config.sh -al -p -q -z
     fi
   done
 fi

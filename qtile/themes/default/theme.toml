@@ -8,9 +8,9 @@ background-color        = "#000000"
 chord                   = "#555555"
 
 [border]
-focused                 = "#ffffff"
-unfocused               = "#555555"
-width                   = 4
+focused                 = "#000000"
+unfocused               = "#000000"
+width                   = 0
 gap                     = 20
 round                   = 20
 
