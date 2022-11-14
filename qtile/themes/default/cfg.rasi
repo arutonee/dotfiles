@@ -1,80 +1,11 @@
-configuration {
-  cycle: true;
-  disable-history: true;
-  modi: "drun";
-  display-drun: "apps";
+* {
+  bg: #000000dd;
   font: "Cantarell 16";
+  entry-color: #ffffff;
+  entry-border: #555555;
+  text: #ffffff;
+  selected: #ffffff;
+  selected-text: #000000;
 }
 
-entry {
-  placeholder: "";
-  color: #ffffff;
-}
-
-window {
-  location: center;
-  width: 50%;
-  border-radius: 24px;
-  background-color: #000000dd;
-  border: none;
-}
-
-#scrollbar {
-  width: 0;
-  handle-width: 0;
-}
-
-mainbox {
-  padding: 12px;
-}
-
-inputbar {
-  background-color: transparent;
-  border-color: #555555;
-  border: 2px;
-  border-radius: 16px;
-
-  padding: 8px 16px;
-  spacing: 8px;
-  children: [ entry ];
-}
-
-textbox {
-  padding: 8px 24px;
-}
-
-listview {
-  border: 0;
-  background-color: transparent;
-  margin: 12px 0 0;
-  lines: 8;
-  columns: 1;
-
-  fixed-height: false;
-}
-
-element {
-  padding: 8px 16px;
-  spacing: 8px;
-  border-radius: 16px;
-}
-
-element normal normal {
-  background-color: transparent;
-  color: #ffffff;
-}
-
-element alternate normal {
-  background-color: transparent;
-  color: #ffffff;
-}
-
-element selected normal {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-element-icon {
-  size: 1em;
-  vertical-align: 0.5;
-}
+@import "~/.config/qtile/drun.rasi"
