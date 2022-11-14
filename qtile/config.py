@@ -9,7 +9,7 @@ THEME = toml.load(expanduser(THEME_DIR + THEME_NAME + "/theme.toml"))
 
 
 from libqtile import bar, layout, widget, hook
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 
 mod = "mod4"
@@ -98,7 +98,9 @@ keys = [
     Key([mod], "Space", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
-    Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    KeyChord([mod, "shift"], "e", [
+        Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile")
+    ], name="Power"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
@@ -175,12 +177,7 @@ screens = [
                 widget.Prompt(),
                 widget.Spacer(),
                 # widget.WindowName(),
-                # widget.Chord(
-                #     chords_colors={
-                #         "launch": ("#ff0000", "#ffffff"),
-                #     },
-                #     name_transform=lambda name: name.upper(),
-                # ),
+                widget.Chord(foreground=THEME["bar"]["chord"]),
                 # widget.TextBox("default config", name="default"),
                 # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
