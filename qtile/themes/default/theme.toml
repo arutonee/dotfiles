@@ -1,0 +1,53 @@
+[background]
+# gif, png, jpg
+type                    = "gif"
+
+[bar]
+vertical_padding        = 1.5
+background-color        = "#000000"
+
+[border]
+focused                 = "#ffffff"
+unfocused               = "#555555"
+width                   = 4
+gap                     = 20
+round                   = 20
+
+[fonts]
+family                  = "Fira Code"
+size                    = 24
+
+[tags]
+# border, block, text, line
+highlight_method        = "block"
+urgent_method           = "block"
+
+width                   = 0
+active                  = "#ffffff"
+inactive                = "#555555"
+current_color           = "#ffffff"
+urgent                  = "#ff0000"
+current_font_color      = "#000000"
+urgent_font_color       = "#000000"
+
+[terminal]
+foreground              = "#ffffff"
+background              = "#000000"
+
+black                   = "#ffffff"
+red                     = "#ffffff"
+green                   = "#ffffff"
+yellow                  = "#ffffff"
+blue                    = "#ffffff"
+magenta                 = "#ffffff"
+cyan                    = "#ffffff"
+white                   = "#ffffff"
+
+bright_black            = "#ffffff"
+bright_red              = "#ffffff"
+bright_green            = "#ffffff"
+bright_yellow           = "#ffffff"
+bright_blue             = "#ffffff"
+bright_magenta          = "#ffffff"
+bright_cyan             = "#ffffff"
+bright_white            = "#ffffff"
