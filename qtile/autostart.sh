@@ -1,4 +1,7 @@
 killall picom xgifwallpaper
+xset -dpms
+xset s noblank
+xset s off
 sleep 0.5
 picom --corner-radius $1 &
 
