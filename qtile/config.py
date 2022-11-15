@@ -39,6 +39,7 @@ TERMBCYAN = THEME["terminal"]["bright_cyan"]
 TERMBWHITE = THEME["terminal"]["bright_white"]
 
 keys = [
+    Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating")
     Key([mod], "d", lazy.spawn(
         "rofi -show drun -config " + expanduser(THEME_DIR + THEME_NAME + "/cfg.rasi")
         )),
