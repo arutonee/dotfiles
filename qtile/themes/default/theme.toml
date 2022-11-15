@@ -6,6 +6,7 @@ type                    = "gif"
 vertical_padding        = 1.5
 background-color        = "#000000"
 chord                   = "#555555"
+text                    = "#ffffff"
 
 [border]
 focused                 = "#000000"

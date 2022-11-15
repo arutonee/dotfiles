@@ -141,7 +141,7 @@ layouts = [
         border_width=THEME["border"]["width"],
         margin=THEME["border"]["gap"]
     ),
-    layout.Max(),
+    # layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -166,7 +166,7 @@ screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.CurrentLayout(),
+                # widget.CurrentLayout(),
                 widget.GroupBox(
                     highlight_method=THEME["tags"]["highlight_method"],
                     borderwidth=THEME["tags"]["width"],
@@ -187,8 +187,8 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Volume(),
-                widget.Clock(format="%Y-%m-%d %a %H:%M:%S"),
+                widget.Volume(foreground=THEME["bar"]["text"]),
+                widget.Clock(format="%Y-%m-%d %a %H:%M:%S", foreground=THEME["bar"]["text"]),
                 # widget.QuickExit(),
             ],
             int(THEME["fonts"]["size"] * THEME["bar"]["vertical_padding"]),

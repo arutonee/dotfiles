@@ -1,12 +1,12 @@
 [background]
 # gif, png, jpg
-type                    = "gif"
+type                    = "jpg"
 
 [bar]
 vertical_padding        = 1.5
-background-color        = "#1b1b1b"
-chord                   = "#feadb9"
-text                    = "#ffffff"
+background-color        = "#2a2462"
+chord                   = "#927acc"
+text                    = "#5e50b0"
 
 [border]
 focused                 = "#000000"
@@ -25,31 +25,31 @@ highlight_method        = "block"
 urgent_method           = "block"
 
 width                   = 0
-active                  = "#d4c0f9"
-inactive                = "#8ac0de"
-current_color           = "#d4c0f9"
-urgent                  = "#feadb9"
-current_font_color      = "#909090"
-urgent_font_color       = "#909090"
+active                  = "#927acc"
+inactive                = "#5e50b0"
+current_color           = "#d6a7b5"
+urgent                  = "#ffffff"
+current_font_color      = "#423a85"
+urgent_font_color       = "#423a85"
 
 [terminal]
 foreground              = "#e6dce5"
-background              = "#1b1b1b"
+background              = "#2a2462"
 
 black                   = "#909090"
-red                     = "#feadb9"
+red                     = "#d6a7b5"
 green                   = "#adddce"
 yellow                  = "#f3ddb3"
 blue                    = "#8ac0de"
-magenta                 = "#d3c0f9"
+magenta                 = "#927acc"
 cyan                    = "#d9effc"
 white                   = "#e6dce5"
 
 bright_black            = "#909090"
-bright_red              = "#feadb9"
+bright_red              = "#d6a7b5"
 bright_green            = "#adddce"
 bright_yellow           = "#f3ddb3"
 bright_blue             = "#8ac0de"
-bright_magenta          = "#d3c0f9"
+bright_magenta          = "#927acc"
 bright_cyan             = "#d9effc"
 bright_white            = "#e6dce5"

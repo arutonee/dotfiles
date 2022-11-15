@@ -1,0 +1,11 @@
+* {
+  bg: #423a85dd;
+  font: "Cantarell 16";
+  entry-color: #927acc;
+  entry-border: #5e50b0;
+  text: #d6a7b5;
+  selected: #d6a7b5;
+  selected-text: #423a85;
+}
+
+@import "~/.config/qtile/drun.rasi"
