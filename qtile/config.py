@@ -63,6 +63,27 @@ keys = [
         f" -o \"colors.bright.cyan='{TERMBCYAN}'\"" + \
         f" -o \"colors.bright.white='{TERMBWHITE}'\""
     ), desc="Launch terminal"),
+    Key([mod, "shift"], "Return", lazy.spawn("alacritty" + \
+        f" -o \"colors.primary.foreground='{TERMFG}'\"" + \
+        f" -o \"colors.primary.background='{TERMBG}'\"" + \
+        f" -o \"colors.normal.black='{TERMBLACK}'\"" + \
+        f" -o \"colors.normal.red='{TERMRED}'\"" + \
+        f" -o \"colors.normal.green='{TERMGREEN}'\"" + \
+        f" -o \"colors.normal.yellow='{TERMYELLOW}'\"" + \
+        f" -o \"colors.normal.blue='{TERMBLUE}'\"" + \
+        f" -o \"colors.normal.magenta='{TERMMAGENTA}'\"" + \
+        f" -o \"colors.normal.cyan='{TERMCYAN}'\"" + \
+        f" -o \"colors.normal.white='{TERMWHITE}'\"" + \
+        f" -o \"colors.bright.black='{TERMBBLACK}'\"" + \
+        f" -o \"colors.bright.red='{TERMBRED}'\"" + \
+        f" -o \"colors.bright.green='{TERMBGREEN}'\"" + \
+        f" -o \"colors.bright.yellow='{TERMBYELLOW}'\"" + \
+        f" -o \"colors.bright.blue='{TERMBBLUE}'\"" + \
+        f" -o \"colors.bright.magenta='{TERMBMAGENTA}'\"" + \
+        f" -o \"colors.bright.cyan='{TERMBCYAN}'\"" + \
+        f" -o \"colors.bright.white='{TERMBWHITE}'\"" + \
+        f" -o \"window.opacity=1\""
+    ), desc="Launch terminal with fully opaque background"),
     # Screenshot
     Key([mod], "x", lazy.spawn("scrot -s -f '/tmp/scsh.png' -e 'xclip -selection clipboard -target image/png -i $f && rm $f'")),
     # Volume
