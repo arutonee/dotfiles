@@ -1,0 +1,55 @@
+[background]
+# gif, png, jpg
+type                    = "jpg"
+
+[bar]
+vertical_padding        = 1.5
+background-color        = "#edebf2"
+chord                   = "#694559"
+text                    = "#271b24"
+
+[border]
+focused                 = "#000000"
+unfocused               = "#000000"
+width                   = 0
+gap                     = 20
+round                   = 20
+
+[fonts]
+family                  = "Fira Code"
+size                    = 24
+
+[tags]
+# border, block, text, line
+highlight_method        = "block"
+urgent_method           = "block"
+
+width                   = 0
+active                  = "#271b24"
+inactive                = "#694559"
+current_color           = "#8462d7"
+urgent                  = "#8462d7"
+current_font_color      = "#edebf2"
+urgent_font_color       = "#edebf2"
+
+[terminal]
+foreground              = "#695d69"
+background              = "#f7f3f7"
+
+black                   = "#1b181b"
+red                     = "#ca402b"
+green                   = "#379a37"
+yellow                  = "#bb8a35"
+blue                    = "#516aec"
+magenta                 = "#7b59c0"
+cyan                    = "#159393"
+white                   = "#ab9bab"
+
+bright_black            = "#776977"
+bright_red              = "#ca402b"
+bright_green            = "#379a37"
+bright_yellow           = "#bb8a35"
+bright_blue             = "#516aec"
+bright_magenta          = "#7b59c0"
+bright_cyan             = "#159393"
+bright_white            = "#f7f3f7"
