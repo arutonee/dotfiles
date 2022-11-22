@@ -87,6 +87,7 @@ keys = [
     # Screenshot
     Key([mod], "x", lazy.spawn("scrot -s -f '/tmp/scsh.png' -e 'xclip -selection clipboard -target image/png -i $f && rm $f'")),
     # Volume
+    Key([], "XF86AudioMute", lazy.spawn("amixer set Master toggle")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer set Master 1%-")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer set Master 1%+")),
     Key([mod], "XF86AudioLowerVolume", lazy.spawn("amixer set Master 5%-")),
