@@ -19,3 +19,4 @@
 - xclip
 - xgifwallpaper
 - zsh
+- zsh-syntax-highlighting
