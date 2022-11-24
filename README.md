@@ -1,14 +1,15 @@
 # Arutonee's Dotfiles
 
 ## Programs Included
-- alacritty
+- kitty
 - qtile
 - rofi
 - zsh
 
 ## Requirements
-- alacritty
+- kitty
 - exa
+- fira-code
 - picom
 - python
 - python-pip

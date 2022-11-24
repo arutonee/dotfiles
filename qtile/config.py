@@ -3,7 +3,7 @@ import toml
 import subprocess
 
 THEME_DIR = "~/.config/qtile/themes/"
-THEME_NAME = "default"
+THEME_NAME = "astolfo"
 
 if not exists(expanduser(THEME_DIR + THEME_NAME + "/theme.toml")):
     THEME_NAME = "default"
@@ -12,78 +12,17 @@ THEME = toml.load(expanduser(THEME_DIR + THEME_NAME + "/theme.toml"))
 
 
 from libqtile import bar, layout, widget, hook
-from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, KeyChord, Screen
 from libqtile.lazy import lazy
 
 mod = "mod4"
-
-TERMFG = THEME["terminal"]["foreground"]
-TERMBG = THEME["terminal"]["background"]
-
-TERMBLACK = THEME["terminal"]["black"]
-TERMRED = THEME["terminal"]["red"]
-TERMGREEN = THEME["terminal"]["green"]
-TERMYELLOW = THEME["terminal"]["yellow"]
-TERMBLUE = THEME["terminal"]["blue"]
-TERMMAGENTA = THEME["terminal"]["magenta"]
-TERMCYAN = THEME["terminal"]["cyan"]
-TERMWHITE = THEME["terminal"]["white"]
-
-TERMBBLACK = THEME["terminal"]["bright_black"]
-TERMBRED = THEME["terminal"]["bright_red"]
-TERMBGREEN = THEME["terminal"]["bright_green"]
-TERMBYELLOW = THEME["terminal"]["bright_yellow"]
-TERMBBLUE = THEME["terminal"]["bright_blue"]
-TERMBMAGENTA = THEME["terminal"]["bright_magenta"]
-TERMBCYAN = THEME["terminal"]["bright_cyan"]
-TERMBWHITE = THEME["terminal"]["bright_white"]
 
 keys = [
     Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([mod], "d", lazy.spawn(
         "rofi -show drun -config " + expanduser(THEME_DIR + THEME_NAME + "/cfg.rasi")
         )),
-    Key([mod], "Return", lazy.spawn("alacritty" + \
-        f" -o \"colors.primary.foreground='{TERMFG}'\"" + \
-        f" -o \"colors.primary.background='{TERMBG}'\"" + \
-        f" -o \"colors.normal.black='{TERMBLACK}'\"" + \
-        f" -o \"colors.normal.red='{TERMRED}'\"" + \
-        f" -o \"colors.normal.green='{TERMGREEN}'\"" + \
-        f" -o \"colors.normal.yellow='{TERMYELLOW}'\"" + \
-        f" -o \"colors.normal.blue='{TERMBLUE}'\"" + \
-        f" -o \"colors.normal.magenta='{TERMMAGENTA}'\"" + \
-        f" -o \"colors.normal.cyan='{TERMCYAN}'\"" + \
-        f" -o \"colors.normal.white='{TERMWHITE}'\"" + \
-        f" -o \"colors.bright.black='{TERMBBLACK}'\"" + \
-        f" -o \"colors.bright.red='{TERMBRED}'\"" + \
-        f" -o \"colors.bright.green='{TERMBGREEN}'\"" + \
-        f" -o \"colors.bright.yellow='{TERMBYELLOW}'\"" + \
-        f" -o \"colors.bright.blue='{TERMBBLUE}'\"" + \
-        f" -o \"colors.bright.magenta='{TERMBMAGENTA}'\"" + \
-        f" -o \"colors.bright.cyan='{TERMBCYAN}'\"" + \
-        f" -o \"colors.bright.white='{TERMBWHITE}'\""
-    ), desc="Launch terminal"),
-    Key([mod, "shift"], "Return", lazy.spawn("alacritty" + \
-        f" -o \"colors.primary.foreground='{TERMFG}'\"" + \
-        f" -o \"colors.primary.background='{TERMBG}'\"" + \
-        f" -o \"colors.normal.black='{TERMBLACK}'\"" + \
-        f" -o \"colors.normal.red='{TERMRED}'\"" + \
-        f" -o \"colors.normal.green='{TERMGREEN}'\"" + \
-        f" -o \"colors.normal.yellow='{TERMYELLOW}'\"" + \
-        f" -o \"colors.normal.blue='{TERMBLUE}'\"" + \
-        f" -o \"colors.normal.magenta='{TERMMAGENTA}'\"" + \
-        f" -o \"colors.normal.cyan='{TERMCYAN}'\"" + \
-        f" -o \"colors.normal.white='{TERMWHITE}'\"" + \
-        f" -o \"colors.bright.black='{TERMBBLACK}'\"" + \
-        f" -o \"colors.bright.red='{TERMBRED}'\"" + \
-        f" -o \"colors.bright.green='{TERMBGREEN}'\"" + \
-        f" -o \"colors.bright.yellow='{TERMBYELLOW}'\"" + \
-        f" -o \"colors.bright.blue='{TERMBBLUE}'\"" + \
-        f" -o \"colors.bright.magenta='{TERMBMAGENTA}'\"" + \
-        f" -o \"colors.bright.cyan='{TERMBCYAN}'\"" + \
-        f" -o \"colors.bright.white='{TERMBWHITE}'\"" + \
-        f" -o \"window.opacity=1\""
-    ), desc="Launch terminal with fully opaque background"),
+    Key([mod], "Return", lazy.spawn("kitty --config " + expanduser(THEME_DIR + THEME_NAME + "/kitty.conf")), desc="Launch terminal"),
     # Screenshot
     Key([mod], "x", lazy.spawn("scrot -s -f '/tmp/scsh.png' -e 'xclip -selection clipboard -target image/png -i $f && rm $f'")),
     # Volume
