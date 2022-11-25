@@ -1,3 +1,7 @@
+# Case-insensitive matching
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 # Prompt
 PS1='%F{red}%1d%f %F{blue}->%f '
 
