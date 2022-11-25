@@ -9,7 +9,7 @@
 ## Requirements
 - kitty
 - exa
-- fira-code
+- fantasque-sans-mono
 - picom
 - python
 - python-pip
