@@ -18,6 +18,8 @@ from libqtile.lazy import lazy
 mod = "mod4"
 
 keys = [
+    Key([mod], "c", lazy.spawn("dunstctl close-all")),
+    Key([mod], "v", lazy.spawn("dunstctl history-pop")),
     Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([mod], "d", lazy.spawn(
         "rofi -show drun -config " + expanduser(THEME_DIR + THEME_NAME + "/cfg.rasi")
@@ -206,8 +208,8 @@ def startup():
     if BG_TYPE != "gif":
         for screen in screens:
             screen.cmd_set_wallpaper(expanduser(THEME_DIR + THEME_NAME + "/background." + BG_TYPE), 'fill')
-        subprocess.call(["bash", home + "/.config/qtile/autostart.sh", str(THEME["border"]["round"])])
+        subprocess.call(["bash", home + "/.config/qtile/autostart.sh", str(THEME["border"]["round"]), THEME_NAME])
     else:
         for screen in screens:
             screen.cmd_set_wallpaper(expanduser("~/.config/qtile/none.png"), 'fill')
-        subprocess.call(["bash", home + "/.config/qtile/autostart.sh", str(THEME["border"]["round"]), THEME_NAME])
+        subprocess.call(["bash", home + "/.config/qtile/autostart.sh", str(THEME["border"]["round"]), THEME_NAME, 'a'])

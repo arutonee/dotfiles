@@ -1,0 +1,22 @@
+[global]
+  separator_color = "#ffffff"
+
+  frame_width = 0
+  font = Fantasque Sans Mono 16
+  format = "<b>%a - %s</b>\n%b"
+  show_age_threshold = -1
+
+[urgency_low]
+  background = "#000000"
+  foreground = "#ffffff"
+  timeout = 0
+
+[urgency_normal]
+  background = "#000000"
+  foreground = "#ffffff"
+  timeout = 0
+
+[urgency_critical]
+  background = "#000000"
+  foreground = "#ffffff"
+  timeout = 0

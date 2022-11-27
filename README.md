@@ -7,9 +7,10 @@
 - zsh
 
 ## Requirements
-- kitty
+- dunst
 - exa
 - fantasque-sans-mono
+- kitty
 - picom
 - python
 - python-pip
