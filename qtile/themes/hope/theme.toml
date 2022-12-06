@@ -1,0 +1,33 @@
+[background]
+# gif, png, jpg
+type                    = "png"
+
+[bar]
+vertical_padding        = 1.5
+background-color        = "#192028"
+chord                   = "#778ba1"
+text                    = "#9aaeba"
+
+[border]
+focused                 = "#000000"
+unfocused               = "#000000"
+width                   = 0
+gap                     = 20
+round                   = 20
+
+[fonts]
+family                  = "Cantarell"
+size                    = 24
+
+[tags]
+# border, block, text, line
+highlight_method        = "block"
+urgent_method           = "block"
+
+width                   = 0
+active                  = "#778ba1"
+inactive                = "#536577"
+current_color           = "#778ba1"
+urgent                  = "#ae7c74"
+current_font_color      = "#192028"
+urgent_font_color       = "#192028"
