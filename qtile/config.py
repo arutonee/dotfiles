@@ -4,7 +4,6 @@ import subprocess
 
 THEME_DIR = "~/.config/qtile/themes/"
 THEME_NAME = "hope"
-
 if not exists(expanduser(THEME_DIR + THEME_NAME + "/theme.toml")):
     THEME_NAME = "default"
 
@@ -159,7 +158,7 @@ dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
-# floating_layout = layout.Floating(
+floating_layout = layout.Floating(
 #     float_rules=[
 #         # # Run the utility of `xprop` to see the wm class and name of an X client.
 #         # *layout.Floating.default_float_rules,
@@ -170,7 +169,7 @@ cursor_warp = False
 #         # Match(title="branchdialog"),  # gitk
 #         # Match(title="pinentry"),  # GPG key password entry
 #     ]
-# )
+)
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
