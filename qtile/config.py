@@ -1,12 +1,20 @@
+import os
 from os.path import expanduser, exists
 import toml
 import subprocess
+import random
 
 THEME_DIR = "~/.config/qtile/themes/"
 THEME_NAME = "hope"
 
 # min of (width, height)
 MIN_OF_WH = 1080
+
+GREETINGS = [
+    "Hello!",
+    "toki!",
+    "Guten Tag!"
+]
 
 
 if not exists(expanduser(THEME_DIR + THEME_NAME + "/theme.toml")):
@@ -18,8 +26,43 @@ THEME = toml.load(expanduser(THEME_DIR + THEME_NAME + "/theme.toml"))
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Screen
 from libqtile.lazy import lazy
+from libqtile.log_utils import logger
 
 mod = "mod4"
+
+
+@lazy.function
+def lock(_):
+    os.system("i3lock -k --indicator --radius " + str(int(MIN_OF_WH/3)) + " --ring-width 2 -c "+THEME["bar"]["background-color"][1:]+"aa" + \
+        " --inside-color=00000000 --ring-color=00000000 --line-color=00000000" + \
+        " --insidever-color=00000000 --ringver-color=00000000" + \
+        " --insidewrong-color=00000000 --ringwrong-color="+THEME["tags"]["urgent"][1:] + \
+        " --keyhl-color="+THEME["tags"]["active"]+" --bshl-color="+THEME["tags"]["inactive"][1:] + \
+        " --separator-color=00000000" + \
+        " --verif-color="+THEME["bar"]["text"][1:] + \
+        " --wrong-color="+THEME["bar"]["text"][1:] + \
+        " --modif-color="+THEME["bar"]["text"][1:] + \
+        " --layout-color="+THEME["bar"]["text"][1:] + \
+        " --time-color="+THEME["bar"]["text"][1:] + \
+        " --date-color="+THEME["bar"]["text"][1:] + \
+        " --greeter-color="+THEME["bar"]["text"][1:] + \
+        " --time-str=\"%H:%M:%S\"" + \
+        " --date-str=\"%Y-%m-%d %A\"" + \
+        " --verif-text=\"...\"" + \
+        " --wrong-text=\"X\"" + \
+        " --keylayout 0" + \
+        " --noinput-text=\"X\"" + \
+        " --lock-text=\"Locking...\"" + \
+        " --lockfailed-text=\"Couldn't lock.\"" + \
+        " --no-modkey-text" + \
+        " --time-font='fantasque sans mono'" + \
+        " --date-font='fantasque sans mono'" + \
+        " --layout-font='fantasque sans mono'" + \
+        " --verif-font='fantasque sans mono'" + \
+        " --wrong-font='fantasque sans mono'" + \
+        " --greeter-font='fantasque sans mono'" + \
+        " --pass-volume-keys --pass-screen-keys" + \
+        " --greeter-text='"+random.choice(GREETINGS)+"'")
 
 keys = [
     Key([mod], "c", lazy.spawn("dunstctl close-all")),
@@ -55,35 +98,7 @@ keys = [
     Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
     KeyChord([mod, "shift"], "e", [
         Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-        Key([mod, "shift"], "l", lazy.spawn(
-            "i3lock -k --indicator --radius " + str(int(MIN_OF_WH/3)) + " --ring-width 2 -c "+THEME["bar"]["background-color"][1:]+"aa" + \
-            " --inside-color=00000000 --ring-color=00000000 --line-color=00000000" + \
-            " --insidever-color=00000000 --ringver-color=00000000" + \
-            " --insidewrong-color=00000000 --ringwrong-color="+THEME["tags"]["urgent"][1:] + \
-            " --keyhl-color="+THEME["tags"]["active"]+" --bshl-color="+THEME["tags"]["inactive"][1:] + \
-            " --separator-color=00000000" + \
-            " --verif-color="+THEME["bar"]["text"][1:] + \
-            " --wrong-color="+THEME["bar"]["text"][1:] + \
-            " --modif-color="+THEME["bar"]["text"][1:] + \
-            " --layout-color="+THEME["bar"]["text"][1:] + \
-            " --time-color="+THEME["bar"]["text"][1:] + \
-            " --date-color="+THEME["bar"]["text"][1:] + \
-            " --time-str=\"%H:%M:%S\"" + \
-            " --date-str=\"%Y-%m-%d %A\"" + \
-            " --verif-text=\"...\"" + \
-            " --wrong-text=\"X\"" + \
-            " --keylayout 0" + \
-            " --noinput-text=\"X\"" + \
-            " --lock-text=\"Locking...\"" + \
-            " --lockfailed-text=\"Couldn't lock.\"" + \
-            " --no-modkey-text" + \
-            " --time-font='fantasque sans mono'" + \
-            " --date-font='fantasque sans mono'" + \
-            " --layout-font='fantasque sans mono'" + \
-            " --verif-font='fantasque sans mono'" + \
-            " --wrong-font='fantasque sans mono'" + \
-            " --pass-volume-keys --pass-screen-keys"
-        ))
+        Key([mod, "shift"], "l", lock())
     ], name="Power"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
