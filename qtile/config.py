@@ -4,6 +4,11 @@ import subprocess
 
 THEME_DIR = "~/.config/qtile/themes/"
 THEME_NAME = "hope"
+
+# min of (width, height)
+MIN_OF_WH = 1080
+
+
 if not exists(expanduser(THEME_DIR + THEME_NAME + "/theme.toml")):
     THEME_NAME = "default"
 
@@ -19,7 +24,7 @@ mod = "mod4"
 keys = [
     Key([mod], "c", lazy.spawn("dunstctl close-all")),
     Key([mod], "v", lazy.spawn("dunstctl history-pop")),
-    Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
     Key([mod], "d", lazy.spawn(
         "rofi -show drun -config " + expanduser(THEME_DIR + THEME_NAME + "/cfg.rasi")
         )),
@@ -49,7 +54,36 @@ keys = [
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
     KeyChord([mod, "shift"], "e", [
-        Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile")
+        Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+        Key([mod, "shift"], "l", lazy.spawn(
+            "i3lock -k --indicator --radius " + str(int(MIN_OF_WH/3)) + " --ring-width 2 -c "+THEME["bar"]["background-color"][1:]+"aa" + \
+            " --inside-color=00000000 --ring-color=00000000 --line-color=00000000" + \
+            " --insidever-color=00000000 --ringver-color=00000000" + \
+            " --insidewrong-color=00000000 --ringwrong-color="+THEME["tags"]["urgent"][1:] + \
+            " --keyhl-color="+THEME["tags"]["active"]+" --bshl-color="+THEME["tags"]["inactive"][1:] + \
+            " --separator-color=00000000" + \
+            " --verif-color="+THEME["bar"]["text"][1:] + \
+            " --wrong-color="+THEME["bar"]["text"][1:] + \
+            " --modif-color="+THEME["bar"]["text"][1:] + \
+            " --layout-color="+THEME["bar"]["text"][1:] + \
+            " --time-color="+THEME["bar"]["text"][1:] + \
+            " --date-color="+THEME["bar"]["text"][1:] + \
+            " --time-str=\"%H:%M:%S\"" + \
+            " --date-str=\"%Y-%m-%d %A\"" + \
+            " --verif-text=\"...\"" + \
+            " --wrong-text=\"X\"" + \
+            " --keylayout 0" + \
+            " --noinput-text=\"X\"" + \
+            " --lock-text=\"Locking...\"" + \
+            " --lockfailed-text=\"Couldn't lock.\"" + \
+            " --no-modkey-text" + \
+            " --time-font=fantasque-sans-mono" + \
+            " --date-font=fantasque-sans-mono" + \
+            " --layout-font=fantasque-sans-mono" + \
+            " --verif-font=fantasque-sans-mono" + \
+            " --wrong-font=fantasque-sans-mono" + \
+            " --pass-volume-keys --pass-screen-keys"
+        ))
     ], name="Power"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
@@ -134,7 +168,7 @@ screens = [
                 # widget.StatusNotifier(),
                 widget.Systray(),
                 widget.Volume(foreground=THEME["bar"]["text"]),
-                widget.Clock(format="%Y-%m-%d %a %H:%M:%S", foreground=THEME["bar"]["text"]),
+                widget.Clock(format="%Y-%m-%d %A %H:%M:%S", foreground=THEME["bar"]["text"]),
                 # widget.QuickExit(),
             ],
             int(THEME["fonts"]["size"] * THEME["bar"]["vertical_padding"]),

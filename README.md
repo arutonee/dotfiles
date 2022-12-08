@@ -10,6 +10,7 @@
 - dunst
 - exa
 - fantasque-sans-mono
+- i3lock-color
 - kitty
 - picom
 - python
