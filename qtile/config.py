@@ -77,11 +77,11 @@ keys = [
             " --lock-text=\"Locking...\"" + \
             " --lockfailed-text=\"Couldn't lock.\"" + \
             " --no-modkey-text" + \
-            " --time-font=fantasque-sans-mono" + \
-            " --date-font=fantasque-sans-mono" + \
-            " --layout-font=fantasque-sans-mono" + \
-            " --verif-font=fantasque-sans-mono" + \
-            " --wrong-font=fantasque-sans-mono" + \
+            " --time-font='fantasque sans mono'" + \
+            " --date-font='fantasque sans mono'" + \
+            " --layout-font='fantasque sans mono'" + \
+            " --verif-font='fantasque sans mono'" + \
+            " --wrong-font='fantasque sans mono'" + \
             " --pass-volume-keys --pass-screen-keys"
         ))
     ], name="Power"),
