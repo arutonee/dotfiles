@@ -16,7 +16,8 @@ GREETINGS = {
     "Guten Tag!": "",
     "Bonjour!": "",
     "Hola!": "",
-    "你好!": "cjk sc"
+    "你好!": "cjk sc",
+    "こんにちは!": "cjk jp"
 }
 
 
@@ -74,6 +75,7 @@ keys = [
     Key([mod], "c", lazy.spawn("dunstctl close-all")),
     Key([mod], "v", lazy.spawn("dunstctl history-pop")),
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
+    Key([mod, 'shift'], "f", lazy.window.toggle_floating(), desc="Toggle fullscreen"),
     Key([mod], "d", lazy.spawn(
         "rofi -show drun -config " + expanduser(THEME_DIR + THEME_NAME + "/cfg.rasi")
         )),
@@ -214,6 +216,7 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
+    border_width=0
 #     float_rules=[
 #         # # Run the utility of `xprop` to see the wm class and name of an X client.
 #         # *layout.Floating.default_float_rules,
