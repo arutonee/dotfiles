@@ -10,11 +10,14 @@ THEME_NAME = "hope"
 # min of (width, height)
 MIN_OF_WH = 1080
 
-GREETINGS = [
-    "Hello!",
-    "toki!",
-    "Guten Tag!"
-]
+GREETINGS = {
+    "Hello!": "",
+    "toki!": "",
+    "Guten Tag!": "",
+    "Bonjour!": "",
+    "Hola!": "",
+    "你好!": "cjk sc"
+}
 
 
 if not exists(expanduser(THEME_DIR + THEME_NAME + "/theme.toml")):
@@ -33,6 +36,9 @@ mod = "mod4"
 
 @lazy.function
 def lock(_):
+    greeting = random.choice(list(GREETINGS.keys()))
+    logger.warning(greeting)
+    logger.warning(GREETINGS[greeting])
     os.system("i3lock -k --indicator --radius " + str(int(MIN_OF_WH/3)) + " --ring-width 2 -c "+THEME["bar"]["background-color"][1:]+"aa" + \
         " --inside-color=00000000 --ring-color=00000000 --line-color=00000000" + \
         " --insidever-color=00000000 --ringver-color=00000000" + \
@@ -55,14 +61,14 @@ def lock(_):
         " --lock-text=\"Locking...\"" + \
         " --lockfailed-text=\"Couldn't lock.\"" + \
         " --no-modkey-text" + \
-        " --time-font='fantasque sans mono'" + \
-        " --date-font='fantasque sans mono'" + \
-        " --layout-font='fantasque sans mono'" + \
-        " --verif-font='fantasque sans mono'" + \
-        " --wrong-font='fantasque sans mono'" + \
-        " --greeter-font='fantasque sans mono'" + \
+        " --time-font='noto sans'" + \
+        " --date-font='noto sans'" + \
+        " --layout-font='noto sans'" + \
+        " --verif-font='noto sans'" + \
+        " --wrong-font='noto sans'" + \
+        " --greeter-font='noto sans " + GREETINGS[greeting] + "'" + \
         " --pass-volume-keys --pass-screen-keys" + \
-        " --greeter-text='"+random.choice(GREETINGS)+"'")
+        " --greeter-text='"+greeting+"'")
 
 keys = [
     Key([mod], "c", lazy.spawn("dunstctl close-all")),
