@@ -12,6 +12,7 @@
 - fantasque-sans-mono
 - i3lock-color
 - kitty
+- noto-fonts-cjk
 - picom
 - python
 - python-pip
