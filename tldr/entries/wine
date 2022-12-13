@@ -1,0 +1,2 @@
+game freezes when it loses focus
+add String "UseTakeFocus"="N" to registry "HKEY_CURRENT_USER > Software > Wine > X11 Driver" (`wine regedit`)

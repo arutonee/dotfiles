@@ -3,64 +3,6 @@ import os
 import re
 import sys
 
-class Trio:
-    def __init__(self, pre: str, atom, post: str):
-        self.pre = pre
-        self.atom = atom
-        self.post = post
-
-        self.symbols = {
-            '\\{': '{',
-            '\\}': '}',
-            '\\,': ',',
-            chr(2): '\\'
-        }
-
-    @staticmethod
-    def from_string(string: str, pre: str="", post: str="") -> Trio:
-        s = string.replace(r'\\', chr(2))
-        split_by_commas = re.split(r'(?<!\\),', s)
-        upper_level_split_by_commas = []
-        final = []
-        starts = 0
-        for part in split_by_commas:
-            if starts == 0: upper_level_split_by_commas.append(part)
-            else:
-                upper_level_split_by_commas[-1] += ',' + part
-                starts -= len(re.findall(r'(?<!\\)}', part))
-            starts += len(re.findall(r'(?<!\\){', part))
-
-        for expr in upper_level_split_by_commas:
-            start_brace = re.search(r'(?<!\\){', expr)
-            end_brace = re.search(r'}(?!\\)', expr[::-1])
-            start = None
-            end = None
-            if start_brace: start = start_brace.span()[0]
-            if end_brace: end = len(expr) - end_brace.span()[0]
-            if start and end:
-                final.append(Trio.from_string(expr[start+1:end-1],expr[:start],expr[end:]))
-            else:
-                final.append(expr)
-
-        return Trio(pre, final, post)
-
-    def generate_combinations(self):
-        combos = []
-        for v in self.atom:
-            if type(v) is str:
-                combos.append(v)
-            elif type(v) is Trio:
-                combos += v.generate_combinations()
-        for symbol in self.symbols:
-            self.pre = self.pre.replace(symbol, self.symbols[symbol])
-            self.post = self.post.replace(symbol, self.symbols[symbol])
-            for i in range(len(combos)):
-                combos[i] = combos[i].replace(symbol, self.symbols[symbol])
-        return [self.pre + v + self.post for v in combos]
-
-    def __repr__(self):
-        return f'Trio(\'{self.pre}\' <- {self.atom} -> \'{self.post}\')'
-
 
 def clear_screen():
     for _ in range(20): print()
