@@ -11,4 +11,6 @@ alias lls="ls"
 alias ls="exa"
 alias la="exa -a"
 
+alias tldr='python3 $TLDR/main.py'
+
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -1,0 +1,9 @@
+{Title, Name}
+The characters "{", "}", and "," can be used to generate multiple combinations for searching.
+To escape the braces and comma, use "\{", "\}", and "\,".
+"\\" can be used as a literal backslash (or "\" by itself if it is not in any of the aforementioned situations).
+Open up a few TLDR files for more information.
+
+Description
+Since a double newline is used to specify a new entry, the description cannot have a double newline.
+Open up a few TLDR files for more information.

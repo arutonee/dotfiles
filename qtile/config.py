@@ -11,13 +11,14 @@ THEME_NAME = "hope"
 MIN_OF_WH = 1080
 
 GREETINGS = {
-    "Hello!": "",
-    "toki!": "",
-    "Guten Tag!": "",
     "Bonjour!": "",
+    "Guten Tag!": "",
     "Hola!": "",
+    "Hello!": "",
+    "Howdy!": "",
+    "こんにちは!": "cjk jp",
     "你好!": "cjk sc",
-    "こんにちは!": "cjk jp"
+    "toki!": "",
 }
 
 

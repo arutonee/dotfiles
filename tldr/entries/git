@@ -1,0 +1,3 @@
+Commit changes
+`EDITOR=nvim git commit`
+`git commit -m 'Message'`
