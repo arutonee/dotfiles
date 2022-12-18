@@ -1,26 +1,20 @@
 # Arutonee's Dotfiles
 
-## Programs Included
-- kitty
-- qtile
-- rofi
-- zsh
-
 ## Requirements
-- dunst
-- exa
-- fantasque-sans-mono
-- i3lock-color
-- kitty
-- noto-fonts-cjk
-- picom
-- python
-- python-pip
-- python-toml
 - qtile
-- rofi
-- scrot
-- xclip
-- xgifwallpaper
+  - dunst
+  - i3lock-color
+  - noto-fonts-cjk
+  - picom
+  - python
+  - python-pip
+  - python-toml
+  - rofi
+  - scrot
+  - xclip
+  - xgifwallpaper
+- fantasque-sans-mono
+- exa
+- kitty
 - zsh
 - zsh-syntax-highlighting
