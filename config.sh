@@ -5,7 +5,8 @@ if [[ $# == 0 ]]; then
 else
   for var in "$@"; do
     if [[ "-h" == "$var" ]]; then
-      echo "-a  | Installs everything included in these dotfiles."
+      echo "-aa | Installs everything included in these dotfiles."
+      echo "-a  | Installs everything not specific to the Qtile config."
       echo "-h  | Shows this message."
       echo "-p  | Sets up Picom."
       echo "-q  | Sets up Qtile."
@@ -26,7 +27,10 @@ else
       echo "export TLDR=$d/tldr" >> ~/.zshrc
     fi
     if [[ "-a" == "$var" ]]; then
-      $d/config.sh -p -q -t -z
+      $d/config.sh -z
+    fi
+    if [[ "-aa" == "$var" ]]; then
+      $d/config.sh -p -q -z
     fi
   done
 fi
