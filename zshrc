@@ -8,9 +8,10 @@ PS1='%F{red}%1~%f %F{blue}->%f '
 
 # Aliases
 alias lls="ls"
-alias ls="exa"
-alias la="exa -a"
+alias ls="exa --icons"
+alias la="exa -a --icons"
 
 alias tldr='python3 $TLDR/main.py'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export TLDR=/home/baka/git/dotfiles/tldr
