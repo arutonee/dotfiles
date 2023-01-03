@@ -7,7 +7,6 @@ PS1='%F{red}%1~%f %F{blue}->%f '
 
 
 # Aliases
-alias lls="ls"
 alias ls="exa --icons"
 alias la="exa -a --icons"
 
