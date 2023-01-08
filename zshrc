@@ -14,4 +14,5 @@ alias hx="helix"
 alias tldr='python3 $TLDR/main.py'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export TLDR=/home/baka/git/dotfiles/tldr
+export TLDR="$HOME/git/dotfiles/tldr"
+export PATH=$PATH:"$HOME/.local/bin"
